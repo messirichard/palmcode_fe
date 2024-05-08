@@ -12,9 +12,12 @@ import bannerImages from '../assets/images/frame-banner-left.jpg';
 
 
 import {useEffect, useState} from "react";
+import InputForm from "@/component/textField/inputForm";
+import ButtonForm from "@/component/button/buttonForm";
 export default function Home() {
     const [step, setStep] = useState(1);
     const [countDown, setCountDown] = useState(10);
+    const [title, setTitle] = useState("")
 
     const nextStep = () => {
         setStep(step + 1);
@@ -26,7 +29,15 @@ export default function Home() {
                 setStep(1);
             }, 10000);
         }
-
+        if(step === 1){
+            setTitle("VISITOR DETAILS")
+        }
+        else if (step === 2){
+            setTitle("SURFING EXPERIENCES")
+        }
+        else if (step === 3){
+            setTitle("ID VERIFICATION")
+        }
     }, [step]);
 
     return (
@@ -52,10 +63,19 @@ export default function Home() {
                         </div>
                         </div>
                         <div className="right-box flex-auto w-7/12">
-                            {step === 1 ? <Submission1 nextStep={nextStep} /> : null}
-                            {step === 2 ? <Submission2 nextStep={nextStep} /> : null}
-                            {step === 3 ? <Submission3 nextStep={nextStep} /> : null}
-                            {step === 4 ? <Submission4 countDown={countDown} /> : null}
+                            <div className="outer-box-form step-1">
+                                {step === 4 ? <Submission4 countDown={countDown}/>
+                                    : <>
+                                        <div className="text-content">
+                                            <h1>Book Your Visit</h1>
+                                            <h6>{step}/3: {title}</h6>
+                                        </div>
+                                        {step === 1 ? <Submission1 nextStep={nextStep}/> : null}
+                                        {step === 2 ? <Submission2 nextStep={nextStep}/> : null}
+                                        {step === 3 ? <Submission3 nextStep={nextStep}/> : null}
+                                    </>
+                                }
+                            </div>
                         </div>
                     </div>
                 </div>
