@@ -1,1 +1,109 @@
-@import"https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Inter:wght@100..900&display=swap";header .logo a{color:#000;text-decoration:none}.wrapper{background-position:bottom center;background-repeat:no-repeat;background-size:cover;width:100%;height:100%}.wrapper .clear{clear:both}.widget-box{display:flex;gap:0;justify-content:center;max-width:95%}.widget-box .left-box .banner{width:100%;clear:both}.widget-box .right-box{background:#000;color:#fff;padding:3.5rem 2.5rem;clear:both}.text-content h1,.text-content h2,.text-content h3,.text-content h4,.text-content h5{color:#fff;font-family:"Bodoni Moda",serif}.text-content h1{font-size:50px;letter-spacing:3px;display:block;margin-bottom:.5rem}.text-content h2{font-size:2.5rem}.text-content h6{font-size:1.4rem}.text-content h6{font-size:16px;letter-spacing:4px}.text-content p{color:#fff}.form-default>.flex{margin-bottom:2rem}.form-default .form-group input.inp-text{border-radius:0;font-weight:400}.form-default .form-group input.inp-text:focus,.form-default .form-group input.inp-text:hover{border-radius:none}.outer-box-form{display:flex;justify-content:space-between;flex-direction:column;height:100%}html,body{margin:0;padding:0;height:100%;font-family:"Inter",sans-serif}/*# sourceMappingURL=customs.css.map */
+@import url("https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Inter:wght@100..900&display=swap");
+header .logo a {
+  color: #000;
+  text-decoration: none;
+}
+
+.wrapper {
+  background-position: bottom center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+}
+.wrapper .clear {
+  clear: both;
+}
+
+.widget-box {
+  display: flex;
+  gap: 0;
+  justify-content: center;
+  max-width: 95%;
+}
+.widget-box .left-box .banner {
+  width: 100%;
+  clear: both;
+}
+.widget-box .right-box {
+  background: #000;
+  color: #fff;
+  padding: 3.5rem 2.5rem;
+  clear: both;
+}
+
+.text-content h1, .text-content h2, .text-content h3, .text-content h4, .text-content h5 {
+  color: #fff;
+  font-family: "Bodoni Moda", serif;
+}
+.text-content h1 {
+  font-size: 50px;
+  letter-spacing: 3px;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+.text-content h2 {
+  font-size: 2.5rem;
+}
+.text-content h6 {
+  font-size: 1.4rem;
+}
+.text-content h6 {
+  font-size: 16px;
+  letter-spacing: 4px;
+}
+.text-content p {
+  color: #fff;
+}
+
+.form-default > .flex {
+  margin-bottom: 2rem;
+}
+.form-default .form-group input.inp-text {
+  border-radius: 0;
+  font-weight: 400;
+}
+.form-default .form-group input.inp-text:focus, .form-default .form-group input.inp-text:hover {
+  border-radius: none;
+}
+
+.outer-box-form {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  height: 100%;
+}
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: "Inter", sans-serif;
+}
+
+.relative.w-full.inline-flex.tap-highlight-transparent.px-3.data-\[hover\=true\]\:bg-default-200.group-data-\[focus\=true\]\:bg-default-100.min-h-10.rounded-none.flex-col.items-start.justify-center.gap-0.transition-background.motion-reduce\:transition-none.\!duration-150.outline-none.group-data-\[focus-visible\=true\]\:z-10.group-data-\[focus-visible\=true\]\:ring-2.group-data-\[focus-visible\=true\]\:ring-focus.group-data-\[focus-visible\=true\]\:ring-offset-2.group-data-\[focus-visible\=true\]\:ring-offset-background.h-14.py-2.backdrop-blur-xl.shadow-xl.bg-black-800.backdrop-saturate-900.hover\:bg-gray-800.group-data-\[focused\=true\]\:bg-gray-800:hover {
+  background-color: rgb(31, 41, 55);
+}
+
+.group[data-focus=true] .group-data-\[focus\=true\]\:bg-default-100 {
+  --tw-bg-opacity: 1;
+  background: none !important;
+}
+
+.group[data-filled-within=true] .group-data-\[filled-within\=true\]\:text-default-600 {
+  --tw-text-opacity: 1;
+  color: white !important;
+}
+
+.group[data-has-value=true] .group-data-\[has-value\=true\]\:text-default-foreground {
+  color: white !important;
+}
+
+.hidden.group-data-\[has-helper\=true\]\:flex.p-1.relative.flex-col.gap-1\.5 {
+  background-color: black;
+}
+
+.group[data-focus=true] .group-data-\[focus\=true\]\:bg-danger-50 {
+  background-color: rgb(31, 41, 55) !important;
+}
+
+/*# sourceMappingURL=customs.css.map */
