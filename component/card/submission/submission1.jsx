@@ -1,7 +1,8 @@
 'use client'
 
 import ButtonForm from "../../button/buttonForm";
-import InputForm from "@/component/textField/inputForm";
+import InputForm from "@/component/input/inputForm";
+import InputCountryForm from "@/component/input/inputCountryForm";
 
 export default function Submission1(props) {
     const {nextStep} = props;
@@ -14,7 +15,8 @@ export default function Submission1(props) {
                         <InputForm label={"Name"} type={"text"} onChange={() => {}} />
                     </div>
                     <div className="form-group flex-auto">
-                        <InputForm label={"Country"} type={"text"}  onChange={() => {}} />
+                        {/*<InputForm label={"Country"} type={"text"}  onChange={() => {}} />*/}
+                        <InputCountryForm />
                     </div>
                 </div>
                 <div className="flex gap-7">

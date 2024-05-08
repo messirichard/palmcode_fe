@@ -12,7 +12,7 @@ import bannerImages from '../assets/images/frame-banner-left.jpg';
 
 
 import {useEffect, useState} from "react";
-import InputForm from "@/component/textField/inputForm";
+import InputForm from "@/component/input/inputForm";
 import ButtonForm from "@/component/button/buttonForm";
 export default function Home() {
     const [step, setStep] = useState(1);

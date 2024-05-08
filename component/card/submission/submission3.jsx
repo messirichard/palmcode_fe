@@ -6,6 +6,7 @@ export default function Submission3(props) {
         // TODO buatkan card yang bagian kanan aja
         <>
             <h1>subs 3</h1>
+            {/*pakai react dropzone*/}
             <ButtonForm handleClick={() => nextStep()} text={"Click me!3"} className={"coba"} />
         </>
     )
