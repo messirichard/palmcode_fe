@@ -1,7 +1,7 @@
 'use client'
 
 import ButtonForm from "../../button/buttonForm";
-import InputForm from "@/component/textField/InputForm";
+import InputForm from "@/component/textField/inputForm";
 
 const classButtons = "rounded-none text-base px-14 py-6 bg-white hover:bg-grey-300 text-black/90 dark:text-black/90";
 export default function Submission1(props) {
