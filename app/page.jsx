@@ -22,10 +22,8 @@ export default function Home() {
 
     }, [step]);
 
-
-
     return (
-        //TODO buatkan card yang bagian kiri disini
+        //TODO buatkan card yang semua kecuali kanan disini
 
         <>
             {step === 1 ? <Submission1 nextStep={nextStep} /> : null}
