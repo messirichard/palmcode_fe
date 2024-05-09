@@ -3,6 +3,8 @@
 import ButtonForm from "../../button/buttonForm";
 import InputForm from "@/component/input/inputForm";
 import InputCountryForm from "@/component/input/inputCountryForm";
+import InputDate from "@/component/input/inputDate";
+import InputVariant from "@/component/input/inputVariant";
 
 export default function Submission1(props) {
     const {nextStep} = props;
@@ -22,9 +24,11 @@ export default function Submission1(props) {
                 <div className="flex gap-7">
                     <div className="form-group flex-auto">
                         <InputForm label={"Email"} type={"email"} onChange={() => {}} />
+                        <InputVariant />
                     </div>
                     <div className="form-group flex-auto">
                         <InputForm label={"Whatsapp Number"} type={"text"} onChange={() => {}} />
+                        <InputDate />
                     </div>
                 </div>
             </div>
