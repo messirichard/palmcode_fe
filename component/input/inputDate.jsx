@@ -8,7 +8,7 @@ export default function InputDate() {
             <div className="flex w-full flex-wrap md:flex-nowrap gap-4">
                 <DatePicker
                     label="Visit Date"
-                    className="max-w-[284px]"
+                    className="max-w-[full] bg-dark-inputs"
                 />
             </div>
         </>

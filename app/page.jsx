@@ -11,6 +11,7 @@ import bannerImages from '../assets/images/frame-banner-left.jpg';
 import {useEffect, useLayoutEffect, useState} from "react";
 import {getCountryAPI} from "@/services/country";
 import {getVariantAPI} from "@/services/variant";
+import Loading from "@/component/loading/loading";
 
 async function getCountry() {
     const result = await getCountryAPI();
@@ -49,7 +50,6 @@ export default function Home() {
             setLoading(true)
         }
     })
-
 
     const nextStep = () => {
         setStep(step + 1);
@@ -94,9 +94,10 @@ export default function Home() {
                                 />
                         </div>
                         </div>
-                        {!loading ?
+
                             <div className="right-box flex-auto w-7/12">
-                                <div className="outer-box-form step-1">
+                                {!loading ?
+                                <div className="outer-box-form">
                                     {step === 4 ? <Submission4 countDown={countDown}/>
                                         : <>
                                             <div className="text-content">
@@ -111,10 +112,14 @@ export default function Home() {
                                         </>
                                     }
                                 </div>
+                                    :
+                                    <>
+                                    <div className="outer-box-form justify-center">
+                                        <Loading />
+                                    </div>
+                                    </>
+                                }
                             </div>
-                            :
-                            <>Loading .....</>
-                        }
                     </div>
                 </div>
             </div>
