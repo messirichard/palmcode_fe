@@ -41,7 +41,6 @@ export default function Home() {
 
     },[loading])
 
-    console.log(loading)
     useEffect(() => {
         if(countryData && variantData){
             setLoading(false)

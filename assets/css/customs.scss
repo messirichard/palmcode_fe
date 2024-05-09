@@ -535,3 +535,22 @@ span.block.subpixel-antialiased.text-default-600.group-data-\[required\=true\]\:
         max-width: 510px;
     }
 }
+
+.span-country{
+    font-size: 10px;
+    top: 5px;
+    position: absolute;
+}
+
+.span-label-change{
+    top: 7px;
+    position: relative;
+    img.input-parent{
+        max-width: 22px;
+        position: absolute;
+    }
+    span{
+        left: 30px;
+        position: relative;
+    }
+}

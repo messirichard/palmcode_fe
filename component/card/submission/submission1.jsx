@@ -4,7 +4,7 @@ import ButtonForm from "../../button/buttonForm";
 import InputForm from "@/component/input/inputForm";
 import InputCountryForm from "@/component/input/inputCountryForm";
 
-import {useState} from "react";
+import {useEffect, useState} from "react";
 
 const classButtons = "rounded-none text-base px-14 py-6 bg-white hover:bg-grey-300 text-black/90 dark:text-black/90";
 
@@ -13,9 +13,14 @@ export default function Submission1(props) {
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [whatsapp, setWhatsapp] = useState("");
+    const [idCountry, setIdCountry] = useState("")
+    const [data, setData] = useState({})
+
+    useEffect(() => {
+        setData({name, email, whatsapp, id_country: idCountry})
+    }, [name, email, whatsapp, idCountry]);
 
     return (
-
         <>
             <div className="form-default">
                 <div className="flex gap-7">
@@ -23,7 +28,7 @@ export default function Submission1(props) {
                         <InputForm label={"Name"} type={"text"} value={name} onChange={setName} />
                     </div>
                     <div className="form-group flex-auto w-2/4">
-                        <InputCountryForm countryData={countryData}/>
+                        <InputCountryForm setIdCountry={setIdCountry} value={idCountry} countryData={countryData}/>
                     </div>
                 </div>
                 <div className="flex gap-7">
