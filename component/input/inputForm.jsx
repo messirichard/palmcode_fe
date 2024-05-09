@@ -1,15 +1,21 @@
 import { Input } from "@nextui-org/react";
+import {useState} from "react";
 
 export default function InputForm(props) {
     const {type, label, onChange} = props;
+    let {value} = props;
+
     let descriptionWarning = "";
     if (type === "email") {
         descriptionWarning = "Please include valid email"
     }
+
+    // console.log(valInput)
     return (
         <>
             <div className="flex w-full flex-wrap md:flex-nowrap gap-4">
                 <Input
+                    value={value}
                     isClearable
                     type={type}
                     label={label}
@@ -23,7 +29,7 @@ export default function InputForm(props) {
                         "text-white",
                     ],
                     }}
-                    onChange={onChange}
+                    onChange={() => onChange(event.target.value)}
                     radius="none"
                     errorMessage={descriptionWarning}
                 />

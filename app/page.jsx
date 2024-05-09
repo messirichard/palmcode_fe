@@ -6,18 +6,38 @@ import Submission1 from '../component/card/submission/submission1';
 import Submission2 from '../component/card/submission/submission2';
 import Submission3 from '../component/card/submission/submission3';
 import Submission4 from '../component/card/submission/submission4';
-
 import backgroundWrapp from '../assets/images/background-new.jpg';
 import bannerImages from '../assets/images/frame-banner-left.jpg';
+import {useEffect, useLayoutEffect, useState} from "react";
+import {getCountryAPI} from "@/services/country";
+import {getVariantAPI} from "@/services/variant";
 
+async function getCountry() {
+    const result = await getCountryAPI();
+    return result
+}
 
-import {useEffect, useState} from "react";
-import InputForm from "@/component/input/inputForm";
-import ButtonForm from "@/component/button/buttonForm";
 export default function Home() {
     const [step, setStep] = useState(1);
     const [countDown, setCountDown] = useState(10);
     const [title, setTitle] = useState("")
+    const [countryData, setCountryData] = useState([]);
+    const [variantData, setVariantData] = useState([]);
+    const [loading, setLoading] = useState(true)
+    const fetchCountry = async () => {
+        const result = await getCountryAPI();
+        setCountryData(result)
+    }
+
+    const fetchVariant = async () => {
+        const result = await getVariantAPI();
+        setVariantData(result)
+    }
+
+    useEffect(() => {
+        fetchVariant()
+        fetchCountry()
+    },[])
 
     const nextStep = () => {
         setStep(step + 1);
@@ -62,21 +82,27 @@ export default function Home() {
                                 />
                         </div>
                         </div>
-                        <div className="right-box flex-auto w-7/12">
-                            <div className="outer-box-form step-1">
-                                {step === 4 ? <Submission4 countDown={countDown}/>
-                                    : <>
-                                        <div className="text-content">
-                                            <h1>Book Your Visit</h1>
-                                            <h6>{step}/3: {title}</h6>
-                                        </div>
-                                        {step === 1 ? <Submission1 nextStep={nextStep}/> : null}
-                                        {step === 2 ? <Submission2 nextStep={nextStep}/> : null}
-                                        {step === 3 ? <Submission3 nextStep={nextStep}/> : null}
-                                    </>
-                                }
+                        {countryData.length > 0 && variantData.length > 0 ?
+                            <div className="right-box flex-auto w-7/12">
+                                <div className="outer-box-form step-1">
+                                    {step === 4 ? <Submission4 countDown={countDown}/>
+                                        : <>
+                                            <div className="text-content">
+                                                <h1>Book Your Visit</h1>
+                                                <h6>{step}/3: {title}</h6>
+                                            </div>
+                                            {step === 1 ?
+                                                <Submission1 countryData={countryData} nextStep={nextStep}/> : null}
+                                            {step === 2 ?
+                                                <Submission2 variantData={variantData} nextStep={nextStep}/> : null}
+                                            {step === 3 ? <Submission3 nextStep={nextStep}/> : null}
+                                        </>
+                                    }
+                                </div>
                             </div>
-                        </div>
+                            :
+                            <>Loading .....</>
+                        }
                     </div>
                 </div>
             </div>
