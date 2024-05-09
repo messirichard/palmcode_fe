@@ -21,8 +21,8 @@ export default function Home() {
     const [step, setStep] = useState(1);
     const [countDown, setCountDown] = useState(10);
     const [title, setTitle] = useState("")
-    const [countryData, setCountryData] = useState([]);
-    const [variantData, setVariantData] = useState([]);
+    const [countryData, setCountryData] = useState();
+    const [variantData, setVariantData] = useState();
     const [loading, setLoading] = useState(true)
     const fetchCountry = async () => {
         const result = await getCountryAPI();
@@ -37,7 +37,19 @@ export default function Home() {
     useEffect(() => {
         fetchVariant()
         fetchCountry()
-    },[])
+
+    },[loading])
+
+    console.log(loading)
+    useEffect(() => {
+        if(countryData && variantData){
+            setLoading(false)
+        }
+        else{
+            setLoading(true)
+        }
+    })
+
 
     const nextStep = () => {
         setStep(step + 1);
@@ -82,7 +94,7 @@ export default function Home() {
                                 />
                         </div>
                         </div>
-                        {countryData.length > 0 && variantData.length > 0 ?
+                        {!loading ?
                             <div className="right-box flex-auto w-7/12">
                                 <div className="outer-box-form step-1">
                                     {step === 4 ? <Submission4 countDown={countDown}/>
