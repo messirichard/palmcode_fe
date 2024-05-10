@@ -13,8 +13,8 @@ const classButtons = "rounded-none text-base px-14 py-6 bg-white hover:bg-grey-3
 export default function Submission2(props) {
     const {nextStep, variantData} = props;
     const [idVariant, setIdVariant] = useState(0)
-    const [valueSlider, setValueSlider] = useState(0)
-    const [inputDate, setInputDate] = useState("")
+    const [valueSlider, setValueSlider] = useState(3)
+    const [inputDate, setInputDate] = useState(new Date())
     const [data, setData] = useState([])
 
     useEffect(() => {
@@ -24,8 +24,9 @@ export default function Submission2(props) {
     const handleClick = async () => {
         const result = await postSubmissionStep2API(data);
         console.log(result)
-        // nextStep(3)
+        nextStep(3)
     }
+
     return (
        <>
             <div className="form-default">

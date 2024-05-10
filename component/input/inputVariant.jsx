@@ -18,7 +18,7 @@ export default function InputVariant(props) {
         >
 
             {variantData.data.map((variant, index) => (
-                <SelectItem key={variant.id}>
+                <SelectItem key={variant.id} textValue={variant.name}>
                     {variant.name}
                 </SelectItem>
             ))}

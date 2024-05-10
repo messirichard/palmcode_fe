@@ -14,6 +14,7 @@ export default function Submission1(props) {
     const [whatsapp, setWhatsapp] = useState("");
     const [idCountry, setIdCountry] = useState("")
     const [data, setData] = useState({})
+    const [dataLocal, setDataLocal] = useState({})
 
     useEffect(() => {
         setData({name, email, whatsapp_number:whatsapp, id_country: idCountry})
@@ -23,13 +24,11 @@ export default function Submission1(props) {
         const result = await postSubmissionStep1API(data);
         localStorage.setItem("token", result.data.token)
 
-        if (result.data.message === "User Already Exists") {
-            nextStep(2)
+        if (result.data.message === "User already registered") {
+            nextStep(4)
         } else {
             nextStep(2)
         }
-
-
     }
 
     return (

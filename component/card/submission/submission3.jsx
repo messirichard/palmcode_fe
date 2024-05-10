@@ -4,8 +4,8 @@ import ButtonForm from "../../button/buttonForm";
 import InputDate from "@/component/input/inputDate";
 import InputVariant from "@/component/input/inputVariant";
 import DropZone from "@/component/addFiles/dropZone";
-
 import {useEffect, useState} from "react";
+import {postSubmissionStep3API} from "@/services/submission";
 
 const classButtons = "rounded-none text-base px-14 py-6 bg-white hover:bg-grey-300 text-black/90 dark:text-black/90";
 
@@ -20,6 +20,13 @@ export default function Submission3(props) {
         files.length > 0 ? setDisabled(false) : setDisabled(true)
     }, [files]);
 
+    const handleClick = async () => {
+        console.log(data)
+        const result = await postSubmissionStep3API(data);
+        nextStep(4)
+        console.log(result)
+    }
+
     console.log(data)
 
     return (
@@ -31,7 +38,7 @@ export default function Submission3(props) {
                 </div>
             </div>
             <div className="block-buttons">
-                <ButtonForm isDisabled={disabled} handleClick={() => nextStep()} text={"Next"} className={classButtons} />
+                <ButtonForm handleClick={() => handleClick()} isDisabled={disabled} text={"Next"} className={classButtons} />
             </div>
         </>
     )
