@@ -1,15 +1,27 @@
 import {Select, SelectItem} from "@nextui-org/react";
+import {useEffect, useState} from "react";
 
-export default function InputVariant() {
+export default function InputVariant(props) {
+    const {variantData, setIdVariant} = props;
+    const [value, setValue] = useState(new Set([]));
+
+    useEffect(() => {
+        setIdVariant(parseInt(value.values().next().value))
+    }, [value]);
+
     return(
         <Select
-            label="Select an animal"
+            label="Your Desired Board"
             className="max-w-xs"
+            selectedKeys={value}
+            onSelectionChange={setValue}
         >
 
-            <SelectItem key={1} value={1}>
-                1
-            </SelectItem>
+            {variantData.data.map((variant, index) => (
+                <SelectItem key={variant.id}>
+                    {variant.name}
+                </SelectItem>
+            ))}
         </Select>
     )
 }

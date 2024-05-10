@@ -44,5 +44,5 @@ export default function Submission1(props) {
                 <ButtonForm handleClick={() => nextStep()} text={"Next"} className={classButtons} />
             </div>
         </>
-)
+    )
 }
