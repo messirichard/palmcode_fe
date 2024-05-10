@@ -34,7 +34,7 @@ export default function Submission3(props) {
                 </div>
             </div>
             <div className="block-buttons">
-                <ButtonForm handleClick={() => handleClick()} isDisabled={disabled} text={"Next"} className={classButtons} />
+                <ButtonForm handleClick={() => handleClick()} isDisabled={disabled} text={"Book my visit"} className={classButtons} />
             </div>
         </>
     )
