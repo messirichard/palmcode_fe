@@ -50,7 +50,7 @@ export default function Home() {
         }
     })
 
-    const nextStep = () => {
+    const nextStep = (data) => {
         setStep(step + 1);
     }
 

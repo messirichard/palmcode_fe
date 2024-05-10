@@ -1,10 +1,9 @@
-'use client'
-
 import ButtonForm from "../../button/buttonForm";
 import InputForm from "@/component/input/inputForm";
 import InputCountryForm from "@/component/input/inputCountryForm";
 
 import {useEffect, useState} from "react";
+import {postSubmissionStep1API} from "@/services/submission";
 
 const classButtons = "rounded-none text-base px-14 py-6 bg-white hover:bg-grey-300 text-black/90 dark:text-black/90";
 
@@ -17,10 +16,13 @@ export default function Submission1(props) {
     const [data, setData] = useState({})
 
     useEffect(() => {
-        setData({name, email, whatsapp, id_country: idCountry})
+        setData({name, email, whatsapp_number:whatsapp, id_country: idCountry})
     }, [name, email, whatsapp, idCountry]);
 
-    console.log(data)
+    const handleClick = async () => {
+        const result = await postSubmissionStep1API(data);
+        localStorage.setItem("token", result.token)
+    }
 
     return (
         <>
@@ -43,7 +45,7 @@ export default function Submission1(props) {
                 </div>
             </div>
             <div className="block-buttons">
-                <ButtonForm handleClick={() => nextStep()} text={"Next"} className={classButtons} />
+                <ButtonForm handleClick={() => handleClick()} text={"Next"} className={classButtons} />
             </div>
         </>
     )
