@@ -28,9 +28,10 @@ export async function postSubmissionStep2API(dataStep2) {
 
 export async function postSubmissionStep3API(dataStep3) {
     const formData = new FormData();
-    formData.append('imageFile', dataStep3.imageFile);
+    formData.append('imageFile', dataStep3[0]);
     try {
         const response = await axios.patch(usersSubmissionStep3URL, formData, headersPatchUpload());
+        console.log(response, "response")
         return response;
     } catch (error) {
         console.error("Error Post submission step 3", error);

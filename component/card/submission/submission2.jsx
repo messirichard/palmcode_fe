@@ -23,7 +23,6 @@ export default function Submission2(props) {
 
     const handleClick = async () => {
         const result = await postSubmissionStep2API(data);
-        console.log(result)
         nextStep(3)
     }
 

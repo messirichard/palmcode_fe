@@ -10,28 +10,23 @@ export default function Submission4(props) {
     const [secondsRemaining, setSecondsRemaining] = useState(countDown);
     const [data, setData] = useState({});
     const [loading, setLoading] = useState(true)
-
-
     const fetchData = async () => {
         const result = await getSubmissionByTokenAPI();
         setData(result.data)
     }
 
-    useEffect(() => {
-        fetchData()
-    }, [loading])
+    console.log(data)
 
     useEffect(() => {
+
+        fetchData()
+
         if (data) {
             setLoading(false)
         } else {
             setLoading(true)
         }
-    })
 
-    console.log(data)
-
-    useEffect(() => {
         if (data) {
             const intervalId = setInterval(() => {
                 if (secondsRemaining > 0) {
@@ -42,7 +37,7 @@ export default function Submission4(props) {
             }, 1000); // Update every second
             return () => clearInterval(intervalId); // Cleanup the interval on unmount
         }
-    }, [secondsRemaining]);
+    }, [loading,secondsRemaining]);
 
     return (
         <>
