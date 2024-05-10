@@ -8,15 +8,10 @@ import Submission3 from '../component/card/submission/submission3';
 import Submission4 from '../component/card/submission/submission4';
 import backgroundWrapp from '../assets/images/background-new.jpg';
 import bannerImages from '../assets/images/frame-banner-left.jpg';
-import {useEffect, useLayoutEffect, useState} from "react";
+import {useEffect, useState} from "react";
 import {getCountryAPI} from "@/services/country";
 import {getVariantAPI} from "@/services/variant";
 import Loading from "@/component/loading/loading";
-
-async function getCountry() {
-    const result = await getCountryAPI();
-    return result
-}
 
 export default function Home() {
     const [step, setStep] = useState(1);
@@ -87,8 +82,6 @@ export default function Home() {
                                 <Image
                                 src={bannerImages}
                                     alt="Picture"
-                                    // width={529}
-                                    // height={581}
                                     className=''
                                 />
                         </div>

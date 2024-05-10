@@ -1,5 +1,5 @@
 import {useDropzone} from 'react-dropzone';
-import {useCallback, useEffect, useState} from "react";
+import {useEffect, useState} from "react";
 import Image from 'next/image'
 
 import iconFiles from "../../assets/images/File.png"
@@ -10,7 +10,7 @@ export default function DropZone(props) {
     const [uploaded, setUploaded] = useState(false)
     const maxSize = 2000000;
 
-    const {acceptedFiles, getRootProps, getInputProps, isDragReject, fileRejections } = useDropzone({
+    const {acceptedFiles, getRootProps, getInputProps, fileRejections } = useDropzone({
         accept: {
             'image/jpeg': [],
             'image/png': [],
@@ -19,8 +19,6 @@ export default function DropZone(props) {
         maxSize,
     });
 
-    // const isFileTooLarge = fileRejections.length === 0 && fileRejections[0].file.size > maxSize;
-    // console.log(isFileTooLarge)
     const onChanges = () => {
         setUploaded(!uploaded)
     }

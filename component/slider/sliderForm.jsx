@@ -8,7 +8,6 @@ export default function SliderForm(props) {
     const [value, setValue] = useState(3)
 
     useEffect(() => {
-        console.log(value)
         setValueSlider(value)
     },[value])
 

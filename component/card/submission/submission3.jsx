@@ -1,8 +1,5 @@
 'use client'
 import ButtonForm from "../../button/buttonForm";
-// import SliderForm from "../../slider/sliderForm";
-import InputDate from "@/component/input/inputDate";
-import InputVariant from "@/component/input/inputVariant";
 import DropZone from "@/component/addFiles/dropZone";
 import {useEffect, useState} from "react";
 import {postSubmissionStep3API} from "@/services/submission";
@@ -21,7 +18,7 @@ export default function Submission3(props) {
     }, [files]);
 
     const handleClick = async () => {
-        const result = await postSubmissionStep3API(data.imageFile);
+        await postSubmissionStep3API(data.imageFile);
         nextStep(4)
     }
 
