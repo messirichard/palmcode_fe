@@ -63,6 +63,16 @@ export default function DropZone(props) {
         )
     }
 
+    const fileRejectionItems = fileRejections.map(({ file, errors }) => (
+        <li key={file.path}>
+            <ul>
+                {errors.map(e => (
+                    <li key={e.code}>{e.message}</li>
+                ))}
+            </ul>
+        </li>
+    ));
+
     return (
         <>
             {uploaded ?
@@ -78,6 +88,7 @@ export default function DropZone(props) {
                             <h6>Upload</h6>
                         </div>
                     </section>
+                    <ul>{fileRejectionItems}</ul>
                 </>
             }
         </>
