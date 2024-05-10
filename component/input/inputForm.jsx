@@ -10,7 +10,6 @@ export default function InputForm(props) {
         descriptionWarning = "Please include valid email"
     }
 
-    // console.log(valInput)
     return (
         <>
             <div className="flex w-full flex-wrap md:flex-nowrap gap-4">

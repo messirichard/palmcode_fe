@@ -31,7 +31,7 @@ export default function Submission1(props) {
         setFieldRequiredWhatsapp(!whatsapp ? true : false)
         setFieldRequiredCountry(!idCountry ? true : false)
 
-        if (!name && !email && !whatsapp && !idCountry) {
+        if (name && email && whatsapp && idCountry) {
             const result = await postSubmissionStep1API(data);
             localStorage.setItem("token", result.data.token)
 
