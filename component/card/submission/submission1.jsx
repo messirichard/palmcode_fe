@@ -20,6 +20,8 @@ export default function Submission1(props) {
         setData({name, email, whatsapp, id_country: idCountry})
     }, [name, email, whatsapp, idCountry]);
 
+    console.log(data)
+
     return (
         <>
             <div className="form-default">

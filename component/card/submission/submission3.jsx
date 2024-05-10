@@ -13,12 +13,15 @@ export default function Submission3(props) {
     const {nextStep} = props;
     const [data, setData] = useState([])
     const [files, setFiles] = useState([])
+    const [disabled, setDisabled] = useState(true)
 
     useEffect(() => {
         setData({imageFile: files})
+        files.length > 0 ? setDisabled(false) : setDisabled(true)
     }, [files]);
 
     console.log(data)
+
     return (
        <>
         <p>Help us verify your identity by uploading a photo of your ID/KTP or Passport</p>
@@ -28,7 +31,7 @@ export default function Submission3(props) {
                 </div>
             </div>
             <div className="block-buttons">
-                <ButtonForm handleClick={() => nextStep()} text={"Next"} className={classButtons} />
+                <ButtonForm isDisabled={disabled} handleClick={() => nextStep()} text={"Next"} className={classButtons} />
             </div>
         </>
     )
