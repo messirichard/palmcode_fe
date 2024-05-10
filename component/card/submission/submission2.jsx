@@ -1,6 +1,5 @@
 'use client'
 import ButtonForm from "../../button/buttonForm";
-// import SliderForm from "../../slider/sliderForm";
 import InputDate from "@/component/input/inputDate";
 import InputVariant from "@/component/input/inputVariant";
 import SliderForm from "@/component/slider/sliderForm";
@@ -16,14 +15,24 @@ export default function Submission2(props) {
     const [valueSlider, setValueSlider] = useState(3)
     const [inputDate, setInputDate] = useState(new Date())
     const [data, setData] = useState([])
+    const [fieldRequiredVariant, setFieldRequiredVariant] = useState(false)
 
     useEffect(() => {
         setData({surfing_experience: valueSlider, date: inputDate, id_variant: idVariant})
     }, [valueSlider, inputDate, idVariant]);
 
     const handleClick = async () => {
-        const result = await postSubmissionStep2API(data);
-        nextStep(3)
+        setFieldRequiredVariant(!idVariant ? true : false)
+        if (idVariant) {
+            await postSubmissionStep2API(data);
+            nextStep(3)
+        }
+    }
+
+    const textErrorRequired = () => {
+        return (
+            <p className="text-red-500 text-sm">*Required Fields</p>
+        )
     }
 
     return (
@@ -38,6 +47,7 @@ export default function Submission2(props) {
                     </div>
                     <div className="form-group flex-auto w-2/4">
                         <InputVariant variantData={variantData} setIdVariant={setIdVariant}/>
+                        {fieldRequiredVariant && textErrorRequired()}
                     </div>
                 </div>
             </div>
