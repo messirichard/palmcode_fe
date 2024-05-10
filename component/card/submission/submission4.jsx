@@ -1,43 +1,41 @@
-'use client'
 import {useEffect, useState} from "react";
 import {getSubmissionByTokenAPI} from "@/services/submission";
 import moment from "moment";
 import Loading from "@/component/loading/loading";
-
+import {objectArray, splitName} from "@/util/util";
 export default function Submission4(props) {
     const {countDown} = props;
     //create timeout
     const [secondsRemaining, setSecondsRemaining] = useState(countDown);
     const [data, setData] = useState({});
-    const [loading, setLoading] = useState(true)
+    const [loading, setLoading] = useState(true);
     const fetchData = async () => {
         const result = await getSubmissionByTokenAPI();
-        setData(result.data)
+        setData(result.data.submission)
     }
 
-    console.log(data)
+    useEffect(() => {
+        fetchData()
+    }, [loading])
 
     useEffect(() => {
-
-        fetchData()
-
         if (data) {
             setLoading(false)
         } else {
             setLoading(true)
         }
+    }, [loading])
 
-        if (data) {
-            const intervalId = setInterval(() => {
-                if (secondsRemaining > 0) {
-                    setSecondsRemaining(secondsRemaining - 1);
-                } else {
-                    clearInterval(intervalId); // Stop the interval when it reaches 0
-                }
-            }, 1000); // Update every second
-            return () => clearInterval(intervalId); // Cleanup the interval on unmount
-        }
-    }, [loading,secondsRemaining]);
+    useEffect(() => {
+        const intervalId = setInterval(() => {
+            if (secondsRemaining > 0) {
+                setSecondsRemaining(secondsRemaining - 1);
+            } else {
+                clearInterval(intervalId); // Stop the interval when it reaches 0
+            }
+        }, 1000); // Update every second
+        return () => clearInterval(intervalId); // Cleanup the interval on unmount
+    }, [secondsRemaining]);
 
     return (
         <>
@@ -45,7 +43,7 @@ export default function Submission4(props) {
                 :
                 <>
                     <div className="text-content box-thanks-last">
-                        <h1>Thank you, {data.name}</h1>
+                        <h1>Thank you, {splitName(data.name)}</h1>
                         <h6>You're In!</h6>
                         <div className="py-1"></div>
                         <p>Your store visit is booked and you're ready to ride the shopping wave. Here’s your
@@ -59,7 +57,7 @@ export default function Submission4(props) {
                             </div>
                             <div className="items">
                                 <label>Country:</label>
-                                <p><img src="https://flagsapi.com/BE/flat/64.png" alt=""/> {data.country}</p>
+                                <p><img className="" src={`https://flagsapi.com/${objectArray(data.Country)[1]}/flat/64.png`} alt=""/> {objectArray(data.Country)[0]}</p>
                             </div>
                         </div>
                         <div className="lists">
@@ -69,7 +67,7 @@ export default function Submission4(props) {
                             </div>
                             <div className="items">
                                 <label>Visit date:</label>
-                                <p>{moment(data.date).format("DD-MM-YYYY")}</p>
+                                <p>{moment(data.date).format("DD/MM/YYYY")}</p>
                             </div>
                         </div>
                     </div>

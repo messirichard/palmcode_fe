@@ -58,7 +58,7 @@ export default function Home() {
         if(step === 4) {
             setTimeout(() => {
                 setStep(1);
-            }, 10000);
+            }, 10000000000);
         }
         if(step === 1){
             setTitle("VISITOR DETAILS")

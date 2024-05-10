@@ -41,7 +41,6 @@ export async function postSubmissionStep3API(dataStep3) {
 export async function getSubmissionByTokenAPI() {
     try {
         const response = await axios.get(usersGetSubmissionByTokenURL, headersGetToken());
-        console.log(response, "response")
         return response;
     } catch (error) {
         console.error("Error Get submission by token", error);
