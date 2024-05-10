@@ -21,7 +21,15 @@ export default function Submission1(props) {
 
     const handleClick = async () => {
         const result = await postSubmissionStep1API(data);
-        localStorage.setItem("token", result.token)
+        localStorage.setItem("token", result.data.token)
+
+        if (result.data.message === "User Already Exists") {
+            nextStep(2)
+        } else {
+            nextStep(2)
+        }
+
+
     }
 
     return (

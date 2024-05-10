@@ -51,7 +51,7 @@ export default function Home() {
     })
 
     const nextStep = (data) => {
-        setStep(step + 1);
+        setStep(data);
     }
 
     useEffect(() => {
