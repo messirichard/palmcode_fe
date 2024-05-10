@@ -24,7 +24,7 @@ export default function Submission1(props) {
         const result = await postSubmissionStep1API(data);
         localStorage.setItem("token", result.data.token)
 
-        if (result.data.message === "User already registered") {
+        if (result.data.message === "User Already Exists") {
             nextStep(4)
         } else {
             nextStep(2)
