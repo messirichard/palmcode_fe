@@ -17,14 +17,12 @@ export default function Submission3(props) {
 
     useEffect(() => {
         setData({imageFile: files})
-        console.log(files)
         files.length > 0 ? setDisabled(false) : setDisabled(true)
     }, [files]);
 
     const handleClick = async () => {
         const result = await postSubmissionStep3API(data.imageFile);
         nextStep(4)
-        console.log(result)
     }
 
     return (
