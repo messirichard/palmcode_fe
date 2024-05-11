@@ -33,7 +33,7 @@ export default function Submission4(props) {
             } else {
                 clearInterval(intervalId); // Stop the interval when it reaches 0
             }
-        }, 1000); // Update every second
+        }, 10000); // Update every second
         return () => clearInterval(intervalId); // Cleanup the interval on unmount
     }, [secondsRemaining]);
 
