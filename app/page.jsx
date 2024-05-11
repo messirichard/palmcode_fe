@@ -53,7 +53,7 @@ export default function Home() {
         if(step === 4) {
             setTimeout(() => {
                 setStep(1);
-            }, 1000);
+            }, 10000);
         }
         if(step === 1){
             setTitle("VISITOR DETAILS")
